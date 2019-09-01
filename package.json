@@ -1,0 +1,23 @@
+{
+  "name": "react-gallery-component",
+  "version": "1.0.1",
+  "description": "A simple react gallery viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Alex Xiao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexHHsiao/react-gallery-component.git"
+  },
+  "keywords": [
+    "react",
+    "gallery"
+  ],
+  "bugs": {
+    "url": "https://github.com/AlexHHsiao/react-gallery-component/issues"
+  },
+  "homepage": "https://github.com/AlexHHsiao/react-gallery-component#readme"
+}
