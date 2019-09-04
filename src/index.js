@@ -1,17 +1,18 @@
-import React from "react";
+import React, {Component} from "react";
 
-const ReactColorSquare = props => {
-    const { width, height, color, text } = props;
-    return (
-        <div style={{
-                width: width || 100,
-                height: height || 100,
-                backgroundColor: color || "blue"
-            }}
-        >
-            {text}
-        </div>
-    );
-};
+class GalleryComponent extends Component {
+    constructor(props) {
+        super(props);
 
-export default ReactColorSquare;
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <div>
+            </div>
+        )
+    }
+}
+
+export default GalleryComponent;
