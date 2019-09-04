@@ -2,7 +2,7 @@
   "name": "react-gallery-component",
   "version": "1.0.1",
   "description": "A simple react gallery viewer",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "start": "webpack --watch",
     "build": "webpack",
@@ -27,12 +27,15 @@
     "react": "^16.9.0",
     "webpack": "^4.39.3"
   },
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/cli": "^7.5.5",
     "babel-loader": "^8.0.6",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "webpack-cli": "^3.3.7"
   }
