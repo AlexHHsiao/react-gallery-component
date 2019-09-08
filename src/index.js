@@ -10,7 +10,7 @@ class GalleryComponent extends Component {
     render() {
         return (
             <div>
-                <button disabled={true}>Click me</button>
+                <button>Click me</button>
             </div>
         );
     }

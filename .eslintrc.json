@@ -56,6 +56,7 @@
     "react/jsx-indent": [
       "error",
       4
-    ]
+    ],
+    "react/button-has-type": 0
   }
 }
