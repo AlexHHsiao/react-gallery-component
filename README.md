@@ -1,1 +1,3 @@
 # react-gallery-component
+
+Package is still under development ...
