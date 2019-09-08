@@ -11,13 +11,12 @@
   },
   "husky": {
     "hook": {
-      "pre-commit": "NODE_ENV=production lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "pretty-quick --staged",
-      "eslint src/ --fix",
+      "eslint src/**/*.js",
       "git add"
     ]
   },
