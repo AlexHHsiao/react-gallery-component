@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
 class GalleryComponent extends Component {
     constructor(props) {
@@ -10,8 +10,9 @@ class GalleryComponent extends Component {
     render() {
         return (
             <div>
+                aaa
             </div>
-        )
+        );
     }
 }
 
