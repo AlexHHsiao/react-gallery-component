@@ -37,7 +37,8 @@
   "homepage": "https://github.com/AlexHHsiao/react-gallery-component#readme",
   "dependencies": {
     "webpack": "^4.39.3",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.9.0"

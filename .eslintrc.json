@@ -57,6 +57,16 @@
       "error",
       4
     ],
-    "react/button-has-type": 0
+    "react/button-has-type": 0,
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "arrow-body-style": 0,
+    "react/jsx-tag-spacing": 0
   }
 }
