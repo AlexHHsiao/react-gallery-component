@@ -4,11 +4,9 @@ const style = {};
 style.galleryContainer = (backgroundColor) => {
     return {
         position: 'relative',
-        border: '1px solid grey',
         height: '100%',
         width: '100%',
-        backgroundColor: backgroundColor || 'grey',
-        overflow: 'hidden'
+        backgroundColor: backgroundColor || 'grey'
     };
 };
 
@@ -16,16 +14,40 @@ style.galleryContainer = (backgroundColor) => {
 style.galleryContent = {
     width: '300%',
     height: '100%',
-    left: '-100%',
-    position: 'relative'
+    display: 'flex',
+    marginLeft: '-100%'
 };
 
 // img
-style.galleryImg = {
-    objectFit: 'contain',
-    display: 'inline-block',
-    height: '100%',
-    width: '100%'
+style.galleryImg = (imgFill) => {
+    return {
+        objectFit: imgFill ? 'cover' : 'contain',
+        height: '100%',
+        width: '33.33%'
+    };
+};
+
+// button
+style.leftBtn = {
+    height: '20px',
+    width: '30px',
+    position: 'absolute',
+    display: 'block',
+    top: '0',
+    bottom: '0',
+    margin: 'auto',
+    left: '0'
+};
+
+style.rightBtn = {
+    height: '20px',
+    width: '30px',
+    position: 'absolute',
+    display: 'block',
+    top: '0',
+    bottom: '0',
+    margin: 'auto',
+    right: '0'
 };
 
 export default style;

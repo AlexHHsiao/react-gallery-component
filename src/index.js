@@ -12,28 +12,44 @@ class GalleryComponent extends Component {
         };
     }
 
+    prevImage = () => {
+
+    };
+
+    nextImage = () => {
+
+    };
+
     render() {
-        const { background, imageCollection } = this.props;
+        const { backgroundColor, imageCollection, imageFill } = this.props;
 
         return (
-            <div style={style.galleryContainer(background)}>
+            <div style={style.galleryContainer(backgroundColor)}>
                 <div style={style.galleryContent}>
-                    <img id='leftImage' alt='' style={style.galleryImg} src={imageCollection[0]}/>
-                    <img alt='' id='currentImage' style={style.galleryImg}/>
-                    <img alt='' id='rightImage' style={style.galleryImg}/>
+                    <img alt='' id='leftImage' style={style.galleryImg(imageFill)}
+                         src={imageCollection[0]}/>
+                    <img alt='' id='currentImage' style={style.galleryImg(imageFill)}
+                         src={imageCollection[0]}/>
+                    <img alt='' id='rightImage' style={style.galleryImg(imageFill)}
+                         src={imageCollection[0]}/>
                 </div>
+
+                <button style={style.leftBtn} onClick={this.prevImage}>a</button>
+                <button style={style.rightBtn} onClick={this.nextImage}>&gt;</button>
             </div>
         );
     }
 }
 
 GalleryComponent.propTypes = {
-    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    imageFill: PropTypes.bool,
     imageCollection: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 GalleryComponent.defaultProps = {
-    background: ''
+    backgroundColor: '',
+    imageFill: false
 };
 
 export default GalleryComponent;
