@@ -11,11 +11,13 @@ style.galleryContainer = (backgroundColor) => {
 };
 
 // content
-style.galleryContent = {
-    width: '300%',
-    height: '100%',
-    display: 'flex',
-    marginLeft: '-100%'
+style.galleryContent = (leftMargin) => {
+    return {
+        width: '300%',
+        height: '100%',
+        display: 'flex',
+        marginLeft: leftMargin
+    };
 };
 
 // img
