@@ -21,19 +21,19 @@ class GalleryComponent extends Component {
 
         const { imageCollection } = this.props;
         const imageSize = imageCollection.length;
-        this.currentImgEle.src = imageCollection[0];
+        this.currentImgEle.src = imageCollection[0] || '';
+        this.rightImgEle.src = imageCollection[1] || imageCollection[0] || '';
+        this.leftImgEle.src = imageCollection[imageSize - 1] || '';
 
-        if (imageSize > 1) {
-            this.rightImgEle.src = imageCollection[1];
-        }
         this.setState({ imageSize });
     }
 
     prevImage = () => {
+        const { imageSize } = this.state;
         let { slideReady, curIndex, contentLeftMargin } = this.state;
-        const { slideTime, imageCollection } = this.props;
+        const { slideTime, imageCollection, infinite } = this.props;
 
-        if (curIndex > 0 && slideReady) {
+        if ((curIndex > 0 && slideReady) || infinite && imageSize !== 0) {
             slideReady = false;
             let interval = null;
             const move = 100 / (slideTime / 5); // single move with in 5 ms
@@ -46,13 +46,16 @@ class GalleryComponent extends Component {
 
                     contentLeftMargin = -100;
                     slideReady = true;
-                    curIndex--;
+                    curIndex = curIndex - 1 < 0 ? imageSize - 1 : --curIndex;
                     this.currentImgEle.src = imageCollection[curIndex];
 
                     if (curIndex !== 0) {
                         this.leftImgEle.src = imageCollection[curIndex - 1];
+                    } else if (curIndex === 0 && infinite) {
+                        this.leftImgEle.src = imageCollection[imageSize - 1];
                     }
-                    this.rightImgEle.src = imageCollection[curIndex + 1];
+
+                    this.rightImgEle.src = imageCollection[curIndex + 1] || imageCollection[0];
                 }
 
                 this.setState({
@@ -67,9 +70,9 @@ class GalleryComponent extends Component {
     nextImage = () => {
         const { imageSize } = this.state;
         let { slideReady, curIndex, contentLeftMargin } = this.state;
-        const { slideTime, imageCollection } = this.props;
+        const { slideTime, imageCollection, infinite } = this.props;
 
-        if (curIndex < imageSize - 1 && slideReady) {
+        if ((curIndex < imageSize - 1 && slideReady) || infinite && imageSize !== 0) {
             slideReady = false;
             let interval = null;
             const move = 100 / (slideTime / 5); // single move with in 5 ms
@@ -82,12 +85,15 @@ class GalleryComponent extends Component {
 
                     contentLeftMargin = -100;
                     slideReady = true;
-                    curIndex++;
+                    curIndex = curIndex + 1 >= imageSize ? 0 : ++curIndex;
                     this.currentImgEle.src = imageCollection[curIndex];
                     if (curIndex !== imageSize - 1) {
                         this.rightImgEle.src = imageCollection[curIndex + 1];
+                    } else if (curIndex === imageSize - 1 && infinite) {
+                        this.rightImgEle.src = imageCollection[0];
                     }
-                    this.leftImgEle.src = imageCollection[curIndex - 1];
+
+                    this.leftImgEle.src = imageCollection[curIndex - 1] || imageCollection[imageSize - 1];
                 }
 
                 this.setState({
@@ -100,7 +106,7 @@ class GalleryComponent extends Component {
     };
 
     render() {
-        const { backgroundColor, imageFill } = this.props;
+        const { backgroundColor, imageFill, infinite } = this.props;
         const { slideReady, curIndex, imageSize, contentLeftMargin } = this.state;
 
         return (
@@ -112,10 +118,10 @@ class GalleryComponent extends Component {
                 </div>
 
                 <button style={style.leftBtn} onClick={this.prevImage}
-                        disabled={!slideReady || curIndex === 0}>a
+                        disabled={(!slideReady || curIndex === 0) && !infinite || imageSize === 0}>a
                 </button>
                 <button style={style.rightBtn} onClick={this.nextImage}
-                        disabled={!slideReady || curIndex === imageSize - 1}>
+                        disabled={(!slideReady || curIndex === imageSize - 1) && !infinite || imageSize === 0}>
                     &gt;
                 </button>
             </div>

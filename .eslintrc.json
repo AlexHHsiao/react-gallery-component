@@ -86,6 +86,8 @@
         "multiline": true
       }
     ],
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "max-len": ["error", { "code": 150 }],
+    "no-mixed-operators": 0
   }
 }
