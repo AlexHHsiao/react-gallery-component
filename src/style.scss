@@ -1,0 +1,34 @@
+.galleryContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .btn {
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    right: 0
+  }
+}
+
+.galleryContent {
+  width: 300%;
+  height: 100%;
+  display: flex;
+
+  img {
+    height: 100%;
+    width: 33.33%;
+  }
+}

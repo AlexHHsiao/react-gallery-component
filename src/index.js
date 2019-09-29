@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import style from './style';
+import './style.scss';
 
 class GalleryComponent extends Component {
     constructor(props) {
@@ -110,17 +110,17 @@ class GalleryComponent extends Component {
         const { slideReady, curIndex, imageSize, contentLeftMargin } = this.state;
 
         return (
-            <div style={style.galleryContainer(backgroundColor)}>
-                <div style={style.galleryContent(`${contentLeftMargin}%`)}>
-                    <img alt='' id='leftImage' style={style.galleryImg(imageFill)}/>
-                    <img alt='' id='currentImage' style={style.galleryImg(imageFill)}/>
-                    <img alt='' id='rightImage' style={style.galleryImg(imageFill)}/>
+            <div className='galleryContainer' style={{ backgroundColor }}>
+                <div className='galleryContent' style={{ marginLeft: `${contentLeftMargin}%` }}>
+                    <img alt='' id='leftImage' style={{ objectFit: imageFill ? 'cover' : 'contain' }}/>
+                    <img alt='' id='currentImage' style={{ objectFit: imageFill ? 'cover' : 'contain' }}/>
+                    <img alt='' id='rightImage' style={{ objectFit: imageFill ? 'cover' : 'contain' }}/>
                 </div>
 
-                <button style={style.leftBtn} onClick={this.prevImage}
+                <button className='btn left' onClick={this.prevImage}
                         disabled={(!slideReady || curIndex === 0) && !infinite || imageSize === 0}>a
                 </button>
-                <button style={style.rightBtn} onClick={this.nextImage}
+                <button className='btn right' onClick={this.nextImage}
                         disabled={(!slideReady || curIndex === imageSize - 1) && !infinite || imageSize === 0}>
                     &gt;
                 </button>
@@ -138,7 +138,7 @@ GalleryComponent.propTypes = {
 };
 
 GalleryComponent.defaultProps = {
-    backgroundColor: '',
+    backgroundColor: 'grey',
     imageFill: false,
     slideTime: 500,
     infinite: false
