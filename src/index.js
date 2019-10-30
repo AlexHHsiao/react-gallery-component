@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
+import leftIcon from './util/left.svg';
+import rightIcon from './util/right.svg';
 
 class GalleryComponent extends Component {
     constructor(props) {
@@ -105,6 +107,17 @@ class GalleryComponent extends Component {
         }
     };
 
+    btnStyle = (disable, position) => {
+        let style = `${position} btn`;
+        if (disable) {
+            style = `${style} disable`;
+        } else {
+            style = `${style} enable`;
+        }
+
+        return style;
+    };
+
     render() {
         const { backgroundColor, imageFill, infinite } = this.props;
         const { slideReady, curIndex, imageSize, contentLeftMargin } = this.state;
@@ -117,13 +130,21 @@ class GalleryComponent extends Component {
                     <img alt='' id='rightImage' style={{ objectFit: imageFill ? 'cover' : 'contain' }}/>
                 </div>
 
-                <button className='btn left' onClick={this.prevImage}
-                        disabled={(!slideReady || curIndex === 0) && !infinite || imageSize === 0}>a
-                </button>
-                <button className='btn right' onClick={this.nextImage}
-                        disabled={(!slideReady || curIndex === imageSize - 1) && !infinite || imageSize === 0}>
-                    &gt;
-                </button>
+                <div className={this.btnStyle((!slideReady || curIndex === 0) && !infinite || imageSize === 0, 'left')}
+                     onClick={this.prevImage}
+                     role='button'
+                     tabIndex={0}
+                >
+                    <img src={leftIcon} alt=''/>
+                </div>
+
+                <div className={this.btnStyle((!slideReady || curIndex === imageSize - 1) && !infinite || imageSize === 0, 'right')}
+                     onClick={this.nextImage}
+                     role='button'
+                     tabIndex={0}
+                >
+                    <img src={rightIcon} alt=''/>
+                </div>
             </div>
         );
     }

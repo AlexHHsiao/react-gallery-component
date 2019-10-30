@@ -4,13 +4,33 @@
   width: 100%;
 
   .btn {
-    height: 20px;
-    width: 30px;
-    position: absolute;
     display: block;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    position: absolute;
+    height: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .5;
+    border-radius: 50%;
+  }
+
+  .enable {
+    cursor: pointer;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &:active {
+      opacity: .9;
+    }
+  }
+
+  .disable {
+    cursor: not-allowed;
+  }
+
+  img {
+    height: 100%;
   }
 
   .left {
